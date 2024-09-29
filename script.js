@@ -1,3 +1,5 @@
+alert('20 rupiya se 100 rupiya tak jitne ke liye is game me 71+ level tak par kare...')
+
 const playBoard = document.querySelector(".play-board");
 const scoreElement = document.querySelector(".score");
 const highScoreElement = document.querySelector(".high-score");
