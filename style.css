@@ -118,7 +118,7 @@ body {
 .har-message,
 .message {
   display: none; /* Hide message by default */
-  margin-top: 30px;
+  margin-top: 10px;
   width: 54%;
   height: auto;
   flex-direction: column;
@@ -226,6 +226,7 @@ body {
   .har-message p,
   .message p{
     font-size: 25px;
+    width: 97%;
   }
   .message-btn{
     flex-direction: column;
