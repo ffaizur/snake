@@ -213,14 +213,17 @@ body {
   #color1{
     margin-left: 10px;
   }
+  .har-message,
   .message{
     width: 90%;
     height: auto;
   }
+  .har-message h1,
   .message h1{
     font-size: 35px;
     width: 100%;
   }
+  .har-message p,
   .message p{
     font-size: 25px;
   }
