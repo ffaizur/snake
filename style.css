@@ -85,6 +85,7 @@ body {
 
 .play-board .head {
   background: #60CBFF;
+  border-radius: 2px;
 }
 
 .controls {
@@ -243,4 +244,35 @@ body {
     margin-left: 0;
     font-size: 25px;
   }
+}
+
+
+
+
+
+
+
+.first-head {
+  position: relative;
+  border-radius: 50%;
+}
+
+.first-head::before,
+.first-head::after {
+  content: "";
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  background-color: black;
+  border-radius: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.first-head::before {
+  top: 10%;
+}
+
+.first-head::after {
+  bottom: 10%;
 }
