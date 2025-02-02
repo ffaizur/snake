@@ -1,4 +1,4 @@
-alert('To win between 80 rupees to 100 rupees, complete up to level 51+ in this game... Press OK to start the game.');
+alert('Clear Level 51+ to win ₹50! Tap 'OK' to start your challenge!');
 
 const playBoard = document.querySelector(".play-board");
 const scoreElement = document.querySelector(".score");
