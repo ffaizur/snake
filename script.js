@@ -1,4 +1,4 @@
-alert('Clear Level 61+ to win ₹50! Tap 'OK' to start your challenge!');
+alert('Clear Level 61+ to win ₹50! Tap "OK" to start your challenge!');
 
 const playBoard = document.querySelector(".play-board");
 const scoreElement = document.querySelector(".score");
