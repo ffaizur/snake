@@ -14,10 +14,10 @@ let gameOver = false;
 let foodX, foodY;
 let snakeX = 5, snakeY = 5;
 let velocityX = 0, velocityY = 0;
-let snakeBody = [[5, 5], [4, 5], [3, 5]]; // Start snake with 3 points long
+let snakeBody = [[5, 5], [4, 5], [3, 5]];
 let setIntervalId;
 let score = 0;
-let gameStarted = false; // Prevents movement before starting
+let gameStarted = false;
 
 // Prevent inspect element
 document.addEventListener("contextmenu", event => event.preventDefault());
@@ -27,7 +27,6 @@ document.addEventListener("keydown", event => {
     }
 });
 
-// Getting high score from the local storage
 let highScore = localStorage.getItem("high-score") || 0;
 highScoreElement.innerText = `High Score: ${highScore}`;
 
@@ -55,29 +54,31 @@ resetButton.addEventListener("click", () => {
     informationElement.style.display = 'flex';
     wrapperElement.style.display = 'block';
     messageElement.style.display = 'none';
-    location.reload(); // Resets the game
+    location.reload();
 });
 
 const changeDirection = (e) => {
+    let key = e.key || e.target.dataset.key;
     if (!gameStarted) {
         gameStarted = true;
     }
-    if (e.key === "ArrowUp" && velocityY !== 1) {
+    if (key === "ArrowUp" && velocityY !== 1) {
         velocityX = 0;
         velocityY = -1;
-    } else if (e.key === "ArrowDown" && velocityY !== -1) {
+    } else if (key === "ArrowDown" && velocityY !== -1) {
         velocityX = 0;
         velocityY = 1;
-    } else if (e.key === "ArrowLeft" && velocityX !== 1) {
+    } else if (key === "ArrowLeft" && velocityX !== 1) {
         velocityX = -1;
         velocityY = 0;
-    } else if (e.key === "ArrowRight" && velocityX !== -1) {
+    } else if (key === "ArrowRight" && velocityX !== -1) {
         velocityX = 1;
         velocityY = 0;
     }
 };
 
 document.addEventListener("keydown", changeDirection);
+controls.forEach(button => button.addEventListener("click", changeDirection));
 
 const initGame = () => {
     if (gameOver) return handleGameOver();
@@ -95,7 +96,7 @@ const initGame = () => {
     
     if (snakeX === foodX && snakeY === foodY) {
         updateFoodPosition();
-        snakeBody.push([...snakeBody[snakeBody.length - 1]]); // Increase length on food touch
+        snakeBody.push([...snakeBody[snakeBody.length - 1]]);
         score++;
         highScore = score >= highScore ? score : highScore;
         localStorage.setItem("high-score", highScore);
@@ -108,8 +109,8 @@ const initGame = () => {
     }
 
     for (let i = 0; i < snakeBody.length; i++) {
-        let color = i === 0 ? "white" : "#60CBFF"; // First point white, others remain the same
-        let extraClass = i === 0 ? "first-head" : ""; // First point me extra class add karenge
+        let color = i === 0 ? "white" : "#60CBFF";
+        let extraClass = i === 0 ? "first-head" : "";
         html += `<div class="head ${extraClass}" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}; background: ${color}"></div>`;
         
         if (i !== 0 && snakeBody[0][0] === snakeBody[i][0] && snakeBody[0][1] === snakeBody[i][1]) {
