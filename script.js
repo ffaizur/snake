@@ -1,4 +1,4 @@
-alert('Clear Level 51+ to win ₹50! Tap 'OK' to start your challenge!');
+alert('Clear Level 61+ to win ₹50! Tap 'OK' to start your challenge!');
 
 const playBoard = document.querySelector(".play-board");
 const scoreElement = document.querySelector(".score");
@@ -37,7 +37,7 @@ const updateFoodPosition = () => {
 
 const handleGameOver = () => {
     gameOver = true;
-    if (score > 51) {
+    if (score > 61) {
         informationElement.style.display = 'none';
         wrapperElement.style.display = 'none';
         messageElement.style.display = 'block';
